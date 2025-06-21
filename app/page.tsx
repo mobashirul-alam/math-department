@@ -159,25 +159,29 @@ export default function HomePage() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            <Button
-                                size="lg"
-                                className="bg-white text-blue-900 hover:bg-gray-100 text-lg px-8 py-4"
-                            >
-                                Explore Programs
-                                <ArrowRight className="ml-2 h-5 w-5" />
-                            </Button>
+                            <Link href="/programs">
+                                <Button
+                                    size="lg"
+                                    className="bg-white text-blue-900 hover:bg-gray-100 text-lg px-8 py-4"
+                                >
+                                    Explore Programs
+                                    <ArrowRight className="ml-2 h-5 w-5" />
+                                </Button>
+                            </Link>
                         </motion.div>
                         <motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="border-white bg-blue-900/50 text-white hover:bg-blue-900 hover:text-white text-lg px-8 py-4 duration-300"
-                            >
-                                Meet Our Faculty
-                            </Button>
+                            <Link href="/faculty">
+                                <Button
+                                    size="lg"
+                                    variant="outline"
+                                    className="border-white bg-blue-900/50 text-white hover:bg-blue-900 hover:text-white text-lg px-8 py-4 duration-300"
+                                >
+                                    Meet Our Faculty
+                                </Button>
+                            </Link>
                         </motion.div>
                     </motion.div>
                 </div>
@@ -380,53 +384,79 @@ export default function HomePage() {
             {/* Mission & Vision */}
             <section className="py-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
+                    <motion.div
+                        className="text-center mb-12"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
                         <h2 className="text-3xl font-bold text-gray-900 mb-4">
                             Mission & Vision
                         </h2>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <Card className="border-l-4 border-l-blue-600">
-                            <CardHeader>
-                                <CardTitle className="text-2xl text-blue-600">
-                                    Our Mission
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-gray-700">
-                                    To provide exceptional mathematical
-                                    education, conduct innovative research, and
-                                    serve our community through the advancement
-                                    of mathematical knowledge and its
-                                    applications across diverse fields.
-                                </p>
-                            </CardContent>
-                        </Card>
-                        <Card className="border-l-4 border-l-green-600">
-                            <CardHeader>
-                                <CardTitle className="text-2xl text-green-600">
-                                    Our Vision
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-gray-700">
-                                    To be recognized as a leading center of
-                                    mathematical excellence, fostering critical
-                                    thinking, innovation, and discovery that
-                                    contributes to the global advancement of
-                                    science and technology.
-                                </p>
-                            </CardContent>
-                        </Card>
-                    </div>
+                    </motion.div>
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
+                        <motion.div variants={itemVariants}>
+                            <Card className="border-l-4 border-l-blue-600">
+                                <CardHeader>
+                                    <CardTitle className="text-2xl text-blue-600">
+                                        Our Mission
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-gray-700">
+                                        To provide exceptional mathematical
+                                        education, conduct innovative research,
+                                        and serve our community through the
+                                        advancement of mathematical knowledge
+                                        and its applications across diverse
+                                        fields.
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </motion.div>
+                        <motion.div variants={itemVariants}>
+                            <Card className="border-l-4 border-l-green-600">
+                                <CardHeader>
+                                    <CardTitle className="text-2xl text-green-600">
+                                        Our Vision
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-gray-700">
+                                        To be recognized as a leading center of
+                                        mathematical excellence, fostering
+                                        critical thinking, innovation, and
+                                        discovery that contributes to the global
+                                        advancement of science and technology.
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* HOD Message */}
             <section className="py-16 bg-blue-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                        <div className="lg:col-span-1">
+                    <motion.div
+                        className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
+                        <motion.div
+                            variants={itemVariants}
+                            className="lg:col-span-1"
+                        >
                             <div className="relative w-64 h-64 mx-auto">
                                 <Image
                                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
@@ -435,8 +465,11 @@ export default function HomePage() {
                                     className="object-cover rounded-full shadow-lg"
                                 />
                             </div>
-                        </div>
-                        <div className="lg:col-span-2">
+                        </motion.div>
+                        <motion.div
+                            variants={itemVariants}
+                            className="lg:col-span-2"
+                        >
                             <h2 className="text-3xl font-bold text-gray-900 mb-4">
                                 Message from the Head
                             </h2>
@@ -462,104 +495,141 @@ export default function HomePage() {
                                     Professor of Applied Mathematics
                                 </p>
                             </div>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Academic Programs Preview */}
             <section className="py-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
+                    <motion.div
+                        className="text-center mb-12"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
                         <h2 className="text-3xl font-bold text-gray-900 mb-4">
                             Academic Programs
                         </h2>
                         <p className="text-lg text-gray-600">
                             Comprehensive mathematical education at every level
                         </p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <Card className="hover:shadow-lg transition-shadow">
-                            <CardHeader>
-                                <BookOpen className="h-8 w-8 text-blue-600 mb-2" />
-                                <CardTitle>BSc Mathematics</CardTitle>
-                                <CardDescription>
-                                    Undergraduate Program
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-gray-600 mb-4">
-                                    A comprehensive foundation in mathematical
-                                    principles, preparing students for careers
-                                    in education, industry, and further study.
-                                </p>
-                                <Button variant="outline" size="sm">
-                                    Learn More
-                                </Button>
-                            </CardContent>
-                        </Card>
-                        <Card className="hover:shadow-lg transition-shadow">
-                            <CardHeader>
-                                <Award className="h-8 w-8 text-green-600 mb-2" />
-                                <CardTitle>Honours Program</CardTitle>
-                                <CardDescription>
-                                    Advanced Undergraduate
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-gray-600 mb-4">
-                                    An intensive program for exceptional
-                                    students, emphasizing research and advanced
-                                    mathematical concepts.
-                                </p>
-                                <Button variant="outline" size="sm">
-                                    Learn More
-                                </Button>
-                            </CardContent>
-                        </Card>
-                        <Card className="hover:shadow-lg transition-shadow">
-                            <CardHeader>
-                                <Users className="h-8 w-8 text-purple-600 mb-2" />
-                                <CardTitle>MSc Mathematics</CardTitle>
-                                <CardDescription>
-                                    Graduate Program
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-gray-600 mb-4">
-                                    Advanced graduate study with specialization
-                                    opportunities in pure and applied
-                                    mathematics.
-                                </p>
-                                <Button variant="outline" size="sm">
-                                    Learn More
-                                </Button>
-                            </CardContent>
-                        </Card>
-                    </div>
-                    <div className="text-center mt-8">
+                    </motion.div>
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
+                        <motion.div variants={itemVariants}>
+                            <Card className="hover:shadow-lg transition-shadow">
+                                <CardHeader>
+                                    <BookOpen className="h-8 w-8 text-blue-600 mb-2" />
+                                    <CardTitle>BSc Mathematics</CardTitle>
+                                    <CardDescription>
+                                        Undergraduate Program
+                                    </CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-gray-600 mb-4">
+                                        A comprehensive foundation in
+                                        mathematical principles, preparing
+                                        students for careers in education,
+                                        industry, and further study.
+                                    </p>
+                                    <Button variant="outline" size="sm">
+                                        Learn More
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        </motion.div>
+                        <motion.div variants={itemVariants}>
+                            <Card className="hover:shadow-lg transition-shadow">
+                                <CardHeader>
+                                    <Award className="h-8 w-8 text-green-600 mb-2" />
+                                    <CardTitle>Honours Program</CardTitle>
+                                    <CardDescription>
+                                        Advanced Undergraduate
+                                    </CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-gray-600 mb-4">
+                                        An intensive program for exceptional
+                                        students, emphasizing research and
+                                        advanced mathematical concepts.
+                                    </p>
+                                    <Button variant="outline" size="sm">
+                                        Learn More
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        </motion.div>
+                        <motion.div variants={itemVariants}>
+                            <Card className="hover:shadow-lg transition-shadow">
+                                <CardHeader>
+                                    <Users className="h-8 w-8 text-purple-600 mb-2" />
+                                    <CardTitle>MSc Mathematics</CardTitle>
+                                    <CardDescription>
+                                        Graduate Program
+                                    </CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-gray-600 mb-4">
+                                        Advanced graduate study with
+                                        specialization opportunities in pure and
+                                        applied mathematics.
+                                    </p>
+                                    <Button variant="outline" size="sm">
+                                        Learn More
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        </motion.div>
+                    </motion.div>
+                    <motion.div
+                        className="text-center mt-8"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4, duration: 0.6 }}
+                    >
                         <Link href="/programs">
                             <Button size="lg">
                                 View All Programs
                                 <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
                         </Link>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Faculty Highlight */}
             <section className="py-16 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
+                    <motion.div
+                        className="text-center mb-12"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
                         <h2 className="text-3xl font-bold text-gray-900 mb-4">
                             Featured Faculty
                         </h2>
                         <p className="text-lg text-gray-600">
                             Meet some of our distinguished faculty members
                         </p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    </motion.div>
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
                         {[
                             {
                                 name: "Dr. Michael Chen",
@@ -582,58 +652,84 @@ export default function HomePage() {
                                     "Bayesian Statistics, Machine Learning",
                             },
                         ].map((faculty, index) => (
-                            <Card
+                            <motion.div
                                 key={index}
-                                className="text-center hover:shadow-lg transition-shadow"
+                                variants={itemVariants}
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ duration: 0.2 }}
                             >
-                                <CardContent className="pt-6">
-                                    <div className="relative w-32 h-32 mx-auto mb-4">
-                                        <Image
-                                            src={
-                                                faculty.image ||
-                                                "/placeholder.svg"
-                                            }
-                                            alt={faculty.name}
-                                            fill
-                                            className="object-cover rounded-full"
-                                        />
-                                    </div>
-                                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                                        {faculty.name}
-                                    </h3>
-                                    <p className="text-blue-600 font-medium mb-2">
-                                        {faculty.title}
-                                    </p>
-                                    <p className="text-gray-600 text-sm">
-                                        {faculty.research}
-                                    </p>
-                                </CardContent>
-                            </Card>
+                                <Card className="text-center hover:shadow-lg transition-shadow">
+                                    <CardContent className="pt-6">
+                                        <motion.div
+                                            className="relative w-32 h-32 mx-auto mb-4"
+                                            whileHover={{ scale: 1.1 }}
+                                            transition={{ duration: 0.2 }}
+                                        >
+                                            <Image
+                                                src={
+                                                    faculty.image ||
+                                                    "/placeholder.svg"
+                                                }
+                                                alt={faculty.name}
+                                                fill
+                                                className="object-cover rounded-full"
+                                            />
+                                        </motion.div>
+                                        <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                                            {faculty.name}
+                                        </h3>
+                                        <p className="text-blue-600 font-medium mb-2">
+                                            {faculty.title}
+                                        </p>
+                                        <p className="text-gray-600 text-sm">
+                                            {faculty.research}
+                                        </p>
+                                    </CardContent>
+                                </Card>
+                            </motion.div>
                         ))}
-                    </div>
-                    <div className="text-center mt-8">
+                    </motion.div>
+                    <motion.div
+                        className="text-center mt-8"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4, duration: 0.6 }}
+                    >
                         <Link href="/faculty">
                             <Button variant="outline">
                                 Meet All Faculty
                                 <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
                         </Link>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Student Achievements */}
             <section className="py-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
+                    <motion.div
+                        className="text-center mb-12"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
                         <h2 className="text-3xl font-bold text-gray-900 mb-4">
                             Student Achievements
                         </h2>
                         <p className="text-lg text-gray-600">
                             Celebrating our students' remarkable accomplishments
                         </p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    </motion.div>
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
                         {[
                             {
                                 title: "International Math Olympiad",
@@ -656,153 +752,223 @@ export default function HomePage() {
                                 icon: "💼",
                             },
                         ].map((achievement, index) => (
-                            <Card
+                            <motion.div
                                 key={index}
-                                className="text-center hover:shadow-lg transition-shadow"
+                                variants={itemVariants}
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ duration: 0.2 }}
                             >
-                                <CardContent className="pt-6">
-                                    <div className="text-4xl mb-4">
-                                        {achievement.icon}
-                                    </div>
-                                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                                        {achievement.title}
-                                    </h3>
-                                    <p className="text-gray-600 text-sm">
-                                        {achievement.description}
-                                    </p>
-                                </CardContent>
-                            </Card>
+                                <Card className="text-center hover:shadow-lg transition-shadow">
+                                    <CardContent className="pt-6">
+                                        <motion.div
+                                            className="text-4xl mb-4"
+                                            animate={{
+                                                rotate: [0, 10, -10, 0],
+                                            }}
+                                            transition={{
+                                                duration: 1,
+                                                repeat: Infinity,
+                                                repeatDelay: 2,
+                                            }}
+                                        >
+                                            {achievement.icon}
+                                        </motion.div>
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                                            {achievement.title}
+                                        </h3>
+                                        <p className="text-gray-600 text-sm">
+                                            {achievement.description}
+                                        </p>
+                                    </CardContent>
+                                </Card>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Events & News Preview */}
             <section className="py-16 bg-blue-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
+                    <motion.div
+                        className="text-center mb-12"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
                         <h2 className="text-3xl font-bold text-gray-900 mb-4">
                             Latest Events & News
                         </h2>
                         <p className="text-lg text-gray-600">
                             Stay updated with our department activities
                         </p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <Card className="hover:shadow-lg transition-shadow">
-                            <CardHeader>
-                                <div className="flex items-center space-x-2">
-                                    <Calendar className="h-5 w-5 text-blue-600" />
-                                    <span className="text-sm text-blue-600 font-medium">
-                                        Upcoming Event
-                                    </span>
-                                </div>
-                                <CardTitle>
-                                    Annual Mathematics Symposium 2024
-                                </CardTitle>
-                                <CardDescription>
-                                    March 15-17, 2024
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-gray-600">
-                                    Join us for three days of cutting-edge
-                                    mathematical research presentations,
-                                    workshops, and networking opportunities with
-                                    leading mathematicians.
-                                </p>
-                            </CardContent>
-                        </Card>
-                        <Card className="hover:shadow-lg transition-shadow">
-                            <CardHeader>
-                                <div className="flex items-center space-x-2">
-                                    <Award className="h-5 w-5 text-green-600" />
-                                    <span className="text-sm text-green-600 font-medium">
-                                        Recent News
-                                    </span>
-                                </div>
-                                <CardTitle>
-                                    Department Receives Research Grant
-                                </CardTitle>
-                                <CardDescription>
-                                    February 28, 2024
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-gray-600">
-                                    Our department has been awarded a $2.5M NSF
-                                    grant to advance research in computational
-                                    mathematics and machine learning
-                                    applications.
-                                </p>
-                            </CardContent>
-                        </Card>
-                    </div>
-                    <div className="text-center mt-8">
+                    </motion.div>
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
+                        <motion.div variants={itemVariants}>
+                            <Card className="hover:shadow-lg transition-shadow">
+                                <CardHeader>
+                                    <div className="flex items-center space-x-2">
+                                        <Calendar className="h-5 w-5 text-blue-600" />
+                                        <span className="text-sm text-blue-600 font-medium">
+                                            Upcoming Event
+                                        </span>
+                                    </div>
+                                    <CardTitle>
+                                        Annual Mathematics Symposium 2024
+                                    </CardTitle>
+                                    <CardDescription>
+                                        March 15-17, 2024
+                                    </CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-gray-600">
+                                        Join us for three days of cutting-edge
+                                        mathematical research presentations,
+                                        workshops, and networking opportunities
+                                        with leading mathematicians.
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </motion.div>
+                        <motion.div variants={itemVariants}>
+                            <Card className="hover:shadow-lg transition-shadow">
+                                <CardHeader>
+                                    <div className="flex items-center space-x-2">
+                                        <Award className="h-5 w-5 text-green-600" />
+                                        <span className="text-sm text-green-600 font-medium">
+                                            Recent News
+                                        </span>
+                                    </div>
+                                    <CardTitle>
+                                        Department Receives Research Grant
+                                    </CardTitle>
+                                    <CardDescription>
+                                        February 28, 2024
+                                    </CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-gray-600">
+                                        Our department has been awarded a $2.5M
+                                        NSF grant to advance research in
+                                        computational mathematics and machine
+                                        learning applications.
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </motion.div>
+                    </motion.div>
+                    <motion.div
+                        className="text-center mt-8"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4, duration: 0.6 }}
+                    >
                         <Link href="/events">
                             <Button>
                                 View All Events & News
                                 <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
                         </Link>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Gallery Preview */}
             <section className="py-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
+                    <motion.div
+                        className="text-center mb-12"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
                         <h2 className="text-3xl font-bold text-gray-900 mb-4">
                             Department Life
                         </h2>
                         <p className="text-lg text-gray-600">
                             Glimpses of our vibrant academic community
                         </p>
-                    </div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    </motion.div>
+                    <motion.div
+                        className="grid grid-cols-2 md:grid-cols-4 gap-4"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
                         {[
                             "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
                             "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                             "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
                             "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
                         ].map((src, index) => (
-                            <div
+                            <motion.div
                                 key={index}
-                                className="relative h-48 rounded-lg overflow-hidden hover:scale-105 transition-transform"
+                                variants={itemVariants}
+                                whileHover={{ scale: 1.1 }}
+                                transition={{ duration: 0.2 }}
                             >
-                                <Image
-                                    src={src || "/placeholder.svg"}
-                                    alt={`Gallery image ${index + 1}`}
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
+                                <div className="relative h-48 rounded-lg overflow-hidden">
+                                    <Image
+                                        src={src || "/placeholder.svg"}
+                                        alt={`Gallery image ${index + 1}`}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                            </motion.div>
                         ))}
-                    </div>
-                    <div className="text-center mt-8">
+                    </motion.div>
+                    <motion.div
+                        className="text-center mt-8"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4, duration: 0.6 }}
+                    >
                         <Link href="/gallery">
                             <Button variant="outline">
                                 View Full Gallery
                                 <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
                         </Link>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Quick Links */}
             <section className="py-16 bg-gray-900 text-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
+                    <motion.div
+                        className="text-center mb-12"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
                         <h2 className="text-3xl font-bold mb-4">
                             Quick Access
                         </h2>
                         <p className="text-lg text-gray-300">
                             Essential resources for students and faculty
                         </p>
-                    </div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    </motion.div>
+                    <motion.div
+                        className="grid grid-cols-2 md:grid-cols-4 gap-6"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
                         {[
                             {
                                 title: "Student Portal",
@@ -825,20 +991,38 @@ export default function HomePage() {
                                 icon: "📞",
                             },
                         ].map((link, index) => (
-                            <Link key={index} href={link.href}>
-                                <Card className="bg-gray-800 border-gray-700 hover:bg-gray-700 transition-colors text-center cursor-pointer">
-                                    <CardContent className="pt-6">
-                                        <div className="text-3xl mb-3">
-                                            {link.icon}
-                                        </div>
-                                        <h3 className="text-white font-semibold">
-                                            {link.title}
-                                        </h3>
-                                    </CardContent>
-                                </Card>
-                            </Link>
+                            <motion.div
+                                key={index}
+                                variants={itemVariants}
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ duration: 0.2 }}
+                            >
+                                <Link href={link.href}>
+                                    <Card className="bg-gray-800 border-gray-700 hover:bg-gray-700 transition-colors text-center cursor-pointer">
+                                        <CardContent className="pt-6">
+                                            <motion.div
+                                                className="text-3xl mb-3"
+                                                animate={{
+                                                    scale: [1, 1.2, 1],
+                                                    rotate: [0, 5, -5, 0],
+                                                }}
+                                                transition={{
+                                                    duration: 1.5,
+                                                    repeat: Infinity,
+                                                    repeatDelay: 1,
+                                                }}
+                                            >
+                                                {link.icon}
+                                            </motion.div>
+                                            <h3 className="text-white font-semibold">
+                                                {link.title}
+                                            </h3>
+                                        </CardContent>
+                                    </Card>
+                                </Link>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
         </div>
