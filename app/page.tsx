@@ -159,25 +159,29 @@ export default function HomePage() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            <Button
-                                size="lg"
-                                className="bg-white text-blue-900 hover:bg-gray-100 text-lg px-8 py-4"
-                            >
-                                Explore Programs
-                                <ArrowRight className="ml-2 h-5 w-5" />
-                            </Button>
+                            <Link href="/programs">
+                                <Button
+                                    size="lg"
+                                    className="bg-white text-blue-900 hover:bg-gray-100 text-lg px-8 py-4"
+                                >
+                                    Explore Programs
+                                    <ArrowRight className="ml-2 h-5 w-5" />
+                                </Button>
+                            </Link>
                         </motion.div>
                         <motion.div
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="border-white bg-blue-900/50 text-white hover:bg-blue-900 hover:text-white text-lg px-8 py-4 duration-300"
-                            >
-                                Meet Our Faculty
-                            </Button>
+                            <Link href="/faculty">
+                                <Button
+                                    size="lg"
+                                    variant="outline"
+                                    className="border-white bg-blue-900/50 text-white hover:bg-blue-900 hover:text-white text-lg px-8 py-4 duration-300"
+                                >
+                                    Meet Our Faculty
+                                </Button>
+                            </Link>
                         </motion.div>
                     </motion.div>
                 </div>
