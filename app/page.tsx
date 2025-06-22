@@ -16,7 +16,6 @@ import {
     Calendar,
     Quote,
     Star,
-    TrendingUp,
     Users,
 } from "lucide-react";
 import Image from "next/image";
@@ -288,7 +287,7 @@ export default function HomePage() {
             <section className="py-16 bg-blue-900 text-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
-                        className="grid grid-cols-2 md:grid-cols-4 gap-8"
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
                         variants={containerVariants}
                         initial="hidden"
                         whileInView="visible"
@@ -309,11 +308,6 @@ export default function HomePage() {
                                 number: "25+",
                                 label: "Expert Faculty",
                                 icon: <Award className="h-8 w-8" />,
-                            },
-                            {
-                                number: "95%",
-                                label: "Job Placement",
-                                icon: <TrendingUp className="h-8 w-8" />,
                             },
                         ].map((stat, index) => (
                             <motion.div
