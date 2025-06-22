@@ -16,12 +16,15 @@ import {
     Calendar,
     Quote,
     Star,
-    TrendingUp,
     Users,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import faisalSirImg from "../public/faculty-images/faisal-sir.jpg";
+import jesminMamImg from "../public/faculty-images/jesmin-madam.jpg";
+import deptHeadImg from "../public/faculty-images/laila-madam.jpg";
+import sorwarSirImg from "../public/faculty-images/sorwar-sir.jpg";
 
 export default function HomePage() {
     const mathematicalQuotes = [
@@ -44,6 +47,26 @@ export default function HomePage() {
         {
             quote: "Mathematics is the most beautiful and most powerful creation of the human spirit.",
             author: "Stefan Banach",
+        },
+        {
+            quote: "Go down deep enough into anything and you will find mathematics.",
+            author: "Dean Schlicter",
+        },
+        {
+            quote: "In mathematics, the art of proposing a question must be held of higher value than solving it.",
+            author: "Georg Cantor",
+        },
+        {
+            quote: "Mathematics knows no races or geographic boundaries; for mathematics, the cultural world is one country.",
+            author: "David Hilbert",
+        },
+        {
+            quote: "The only way to learn mathematics is to do mathematics.",
+            author: "Paul Halmos",
+        },
+        {
+            quote: "To understand mathematics is to understand the universe.",
+            author: "Bertrand Russell",
         },
     ];
 
@@ -264,7 +287,7 @@ export default function HomePage() {
             <section className="py-16 bg-blue-900 text-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
-                        className="grid grid-cols-2 md:grid-cols-4 gap-8"
+                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
                         variants={containerVariants}
                         initial="hidden"
                         whileInView="visible"
@@ -285,11 +308,6 @@ export default function HomePage() {
                                 number: "25+",
                                 label: "Expert Faculty",
                                 icon: <Award className="h-8 w-8" />,
-                            },
-                            {
-                                number: "95%",
-                                label: "Job Placement",
-                                icon: <TrendingUp className="h-8 w-8" />,
                             },
                         ].map((stat, index) => (
                             <motion.div
@@ -457,12 +475,12 @@ export default function HomePage() {
                             variants={itemVariants}
                             className="lg:col-span-1"
                         >
-                            <div className="relative w-64 h-64 mx-auto">
+                            <div className="relative w-64 h-80 mx-auto">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                                    src={deptHeadImg}
                                     alt="Head of Department"
                                     fill
-                                    className="object-cover rounded-full shadow-lg"
+                                    className="object-cover rounded-lg shadow-lg"
                                 />
                             </div>
                         </motion.div>
@@ -486,13 +504,10 @@ export default function HomePage() {
                             </blockquote>
                             <div>
                                 <p className="font-semibold text-gray-900">
-                                    Dr. Sarah Johnson
+                                    Laila Arjuman Banu
                                 </p>
                                 <p className="text-gray-600">
                                     Head of Department
-                                </p>
-                                <p className="text-gray-600">
-                                    Professor of Applied Mathematics
                                 </p>
                             </div>
                         </motion.div>
@@ -632,24 +647,19 @@ export default function HomePage() {
                     >
                         {[
                             {
-                                name: "Dr. Michael Chen",
-                                title: "Professor of Pure Mathematics",
-                                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-                                research: "Number Theory, Algebraic Geometry",
+                                name: "Jesmin Akter",
+                                title: "Assistant Professor",
+                                image: jesminMamImg,
                             },
                             {
-                                name: "Dr. Emily Rodriguez",
-                                title: "Associate Professor of Applied Mathematics",
-                                image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-                                research:
-                                    "Mathematical Biology, Differential Equations",
+                                name: "Faisal Mohammad Mainol Quader",
+                                title: "Assistant Professor",
+                                image: faisalSirImg,
                             },
                             {
-                                name: "Dr. James Wilson",
-                                title: "Professor of Statistics",
-                                image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-                                research:
-                                    "Bayesian Statistics, Machine Learning",
+                                name: "Sorowar Imran",
+                                title: "Lecturer",
+                                image: sorwarSirImg,
                             },
                         ].map((faculty, index) => (
                             <motion.div
@@ -672,7 +682,7 @@ export default function HomePage() {
                                                 }
                                                 alt={faculty.name}
                                                 fill
-                                                className="object-cover rounded-full"
+                                                className="object-cover rounded-full bg-gray-50"
                                             />
                                         </motion.div>
                                         <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -680,9 +690,6 @@ export default function HomePage() {
                                         </h3>
                                         <p className="text-blue-600 font-medium mb-2">
                                             {faculty.title}
-                                        </p>
-                                        <p className="text-gray-600 text-sm">
-                                            {faculty.research}
                                         </p>
                                     </CardContent>
                                 </Card>
